@@ -1,0 +1,35 @@
+function v = drugAdministration(t,time_vec, dose,time_mesh)
+% Let t_i (t_i \in time_vec) be the time when the i:th dose is given and
+% let d_i be the dose given at time t_i. 
+% Then v = d_i if t \in [t_i, t_i + delta] for all i
+% and  v = 0   otherwise
+    delta = 1; % administrate for delta = 1 day
+    if t < time_mesh(1) | t > time_mesh(end)
+        error('Time t not in interval')
+    elseif isempty(time_vec)
+        %disp('No drugs are given')
+        v = 0;
+    elseif length(time_vec) ~= length(dose)
+        error('Number of doses and when to administrate them are not matching')            
+    elseif length(time_vec) == 1
+        v = square(t,time_vec(1),delta,dose(1));
+    else
+        % make more efficient by substituting find
+        if t <= time_vec(1) || t >= time_vec(end)
+            v = square(t,time_vec(1),delta,dose(1)) + ...
+                square(t,time_vec(end),delta,dose(end));
+        else %get upper lim and lower lim 
+            i = find(time_vec >= t,1)-1;
+            v = square(t,time_vec(i),delta,dose(i)) + ...
+                square(t,time_vec(i+1),delta,dose(i+1));
+        end
+
+    end
+    function v = square(t,time,delta,dose)
+        if t >= time & t <= time + delta
+            v = dose;
+        else
+            v = 0;
+        end
+    end
+end

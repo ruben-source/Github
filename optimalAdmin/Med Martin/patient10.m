@@ -1,0 +1,32 @@
+function par = patient10()
+    a = 4.31*10^-1; %par(1);
+    b = 1.02*10^-9; %par(2);
+    c = 6.41*10^-11;%par(3);
+    d =1.88;% par(4); patient 10
+    e = 2.08*10^-7;%par(5);
+    l= 1.81;%par(6); patient 10
+    f = 4.12*10^-2;%par(7);
+    g = 1.25*10^-2;%par(8);
+    h = 2.02*10^7;%par(9);
+    j = 2.49*10^-2;%par(10);
+    k = 5.66*10^7;%par(11);patient 10
+    m = 9.12;%par(12);     patient 10
+    q = 1.59*10^-6;%par(13);patient 10
+    p = 3.59*10^-6;%par(14); patient 10
+    s = 5.12*10^-1;%par(15); patient 10
+    r_1 = 1.1*10^-7;%par(16);
+    r_2 = 6.5*10^-11;%par(17);
+    u = 3*10^-10;%par(18);
+    K_T = 9*10^-2;%par(19);
+    K_N = 6*10^-1;%par(20);
+    K_L = 6*10^-1;%par(21);
+    K_C = 6*10^-1;%par(22);
+    alpha = 5*10^8;%par(23);patient 10
+    beta = 8*10^-3;%par(24);patient 10
+    gamma = 9*10^-1;%par(25);
+    p_I = 1.25*10^-1;%par(26);
+    g_I = 2*10^7;%par(27);
+    mu_I = 10;%par(28);
+    par = [a,b,c,d,e,l,f,g,h,j,k,m,q,p,s,r_1,r_2,...
+            u,K_T,K_N,K_L,K_C,alpha,beta,gamma,p_I,g_I,mu_I];
+end
